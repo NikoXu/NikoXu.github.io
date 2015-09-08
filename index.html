@@ -105,7 +105,8 @@
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
                         }), message);
                     }
-                }else if (window.webkit.messageHandlers.observe.postMessage) {
+                }else  {
+                    log("wkWebview working")
                 	if (result) {
                 		try {
                             var json_gt = JSON.stringify({
