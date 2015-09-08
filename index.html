@@ -119,11 +119,11 @@
                         catch (e) {
                             log(e)
                         }
-                        window.webkit.messageHandlers.observe.postMessage("1", json_gt, message);
+                        window.webkit.messageHandlers.observe.postMessage("1" + json_gt + message);
                 	}else{
-                		window.webkit.messageHandlers.observe.postMessage("0", JSON.stringify({
+                		window.webkit.messageHandlers.observe.postMessage("0" + JSON.stringify({
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
-                        }), message);
+                        }) + message);
                 	}
                 }
             }
