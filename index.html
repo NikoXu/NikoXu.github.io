@@ -82,7 +82,7 @@
             window.gt_custom_ajax = function (result, id, message) {
                 log("in ajax")
                 //log(result + id + message)
-                
+                if (window.android && window.android.gtCallBack) {
                     //log("has android callback")
                     if (result) {
                         log("succeed")
@@ -98,14 +98,33 @@
                             log(e)
                         }
 
-                        window.webkit.messageHandlers.observe.postMessage("1", json_gt, message);
+                        window.android.gtCallBack("1", json_gt, message);
                     }
                     else {
-                        webkit.messageHandlers.observe.gtCallBack("0", JSON.stringify({
+                        window.android.gtCallBack("0", JSON.stringify({
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
                         }), message);
                     }
-                
+                }else if (window.webkit.messageHandlers.observe.postMessage) {
+                	if (result) {
+                		try {
+                            var json_gt = JSON.stringify({
+                                geetest_challenge: document.querySelector('input[name=geetest_challenge]').value,
+                                geetest_validate: document.querySelector('input[name=geetest_validate]').value,
+                                geetest_seccode: document.querySelector('input[name=geetest_seccode]').value
+                            })
+                            log(json_gt)
+                        }
+                        catch (e) {
+                            log(e)
+                        }
+                        window.webkit.messageHandlers.observe.postMessage("1", json_gt, message);
+                	}else{
+                		window.webkit.messageHandlers.observe.postMessage("0", JSON.stringify({
+                            geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
+                        }), message);
+                	};
+                };
             }
             window.onGeetestLoaded = function($) {
                 if(typeof $ == 'function') {
