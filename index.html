@@ -120,11 +120,17 @@
                             catch (e) {
                             log(e)
                         }
-                        window.webkit.messageHandlers.observe.postMessage(JSON.stringify({"1", json_gt, message}));
+                        window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
+                            code : "1",
+                            result: json_gt,
+                            message: message]}));
                 	}else{
-                		window.webkit.messageHandlers.observe.postMessage(JSON.stringify({"0", JSON.stringify({
+                		window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
+                            code: "0",
+                            result: JSON.stringify({
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
-                        }), message}));
+                        }),
+                            message: message}));
                 	}
                 // }
                 }
