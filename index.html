@@ -107,7 +107,7 @@
                     }
                 }else  {
                     log("wkWebview working")
-                    // if (window.webkit.messageHandlers) {
+                    if (window.webkit.messageHandlers) {
                 	   if (result) {
                 		  try {
                             var json_gt = JSON.stringify({
@@ -132,7 +132,7 @@
                         },
                             message: message}));
                 	}
-                // }
+                }
                 }
             }
             window.onGeetestLoaded = function($) {
