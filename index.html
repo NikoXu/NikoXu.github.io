@@ -107,24 +107,26 @@
                     }
                 }else  {
                     log("wkWebview working")
-                	if (result) {
-                		try {
+                    if (window.webkit.messageHandlers.observe) {
+                	   if (result) {
+                		  try {
                             var json_gt = JSON.stringify({
                                 geetest_challenge: document.querySelector('input[name=geetest_challenge]').value,
                                 geetest_validate: document.querySelector('input[name=geetest_validate]').value,
                                 geetest_seccode: document.querySelector('input[name=geetest_seccode]').value
-                            })
+                               })
                             log(json_gt)
-                        }
-                        catch (e) {
+                          }
+                            catch (e) {
                             log(e)
-                        }
-                        window.webkit.messageHandlers.observe.postMessage("1" + json_gt + message);
-                	}else{
-                		window.webkit.messageHandlers.observe.postMessage("0" + JSON.stringify({
+                            }
+                            window.webkit.messageHandlers.observe.postMessage("1" + json_gt + message);
+                	   }else{
+                	       window.webkit.messageHandlers.observe.postMessage("0" + JSON.stringify({
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
                         }) + message);
-                	}
+                	    }
+                    }
                 }
             }
             window.onGeetestLoaded = function($) {
