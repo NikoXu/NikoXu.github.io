@@ -107,7 +107,7 @@
                     }
                 }else  {
                     log("wkWebview working")
-                    if (window.webkit.messageHandlers.observe) {
+                    if (window.webkit.messageHandlers) {
                 	   if (result) {
                 		  try {
                             var json_gt = JSON.stringify({
