@@ -127,9 +127,9 @@
                 	}else{
                 		window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
                             code: "0",
-                            result: JSON.stringify({
+                            result: {
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
-                        }),
+                        },
                             message: message}));
                 	}
                 // }
