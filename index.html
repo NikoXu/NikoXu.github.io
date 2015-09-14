@@ -141,6 +141,13 @@
                     vp.setAttribute('content','width=260,user-scalable=no');
                 }
             }
+            if (window.webkit.messageHandlers) {
+                log ('2');
+                gtapp.gtCloseWindow = function(){
+                log ("closeWindow working"); 
+                    window.webkit.messageHandlers.observe.postMessage(JSON.stringify({closeWindow:"1"}));
+                }
+            }
         </script>
     </div>
 </div>
