@@ -68,7 +68,6 @@
     </div>
     <div class="body" id="content">
         <script>
-            var gtapp = {};
             var log = function (str) {
                 var s = document.createElement('div');
                 s.innerHTML = str + '<br/>';
@@ -140,13 +139,6 @@
                 if(typeof $ == 'function') {
                     var vp = document.getElementById('viewport');
                     vp.setAttribute('content','width=260,user-scalable=no');
-                }
-            }
-            if (window.webkit.messageHandlers) {
-                log ('2');
-                gtapp.gtCloseWindow = function(){
-                log ("closeWindow working"); 
-                    window.webkit.messageHandlers.observe.postMessage(JSON.stringify({closeWindow:"1"}));
                 }
             }
         </script>
