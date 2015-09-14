@@ -141,14 +141,12 @@
                     vp.setAttribute('content','width=260,user-scalable=no');
                 }
             }
-            if (window.webkit.messageHandlers)｛
-                if (!gtapp) {
-                    window.gtapp = {};
-                }
-                gtapp.gtCloseWindow = function () { 
+            function createObj(){ 
+                var gtapp = new object(); 
+                gtapp.gtCloseWindow = function(){ 
                     window.webkit.messageHandlers.observe.postMessage(JSON.stringify({closeWindow:"1"}));
                 }
-            }
+    }
         </script>
     </div>
 </div>
