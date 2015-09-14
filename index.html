@@ -143,6 +143,7 @@
             }
             log('1');
             if (window.webkit.messageHandlers) {
+                log ('2');
                 gtapp.gtCloseWindow = function(){
                 log ("closeWindow working"); 
                     window.webkit.messageHandlers.observe.postMessage(JSON.stringify({closeWindow:"1"}));
