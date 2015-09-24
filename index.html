@@ -69,10 +69,10 @@
     <div class="body" id="content">
         <script>
             var downHandler = function () {
-                window.startMotion();
+                window.android.startMotion();
             };
             var upHandler = function () {
-                window.stopMotionAndReturnData();
+                window.android.stopMotionAndReturnData();
             };
             document.addEventListener('mousedown', downHandler);
             document.addEventListener('mouseup', upHandler);
