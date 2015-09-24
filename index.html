@@ -74,8 +74,8 @@
             var upHandler = function () {
                 window.android.stopMotionAndReturnData();
             };
-            document.addEventListener('mousedown', downHandler);
-            document.addEventListener('mouseup', upHandler);
+            document.addEventListener('touchstart', downHandler);
+            document.addEventListener('touchend', upHandler);
 
             var log = function (str) {
                 var s = document.createElement('div');
