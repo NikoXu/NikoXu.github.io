@@ -68,6 +68,7 @@
     </div>
     <div class="body" id="content">
         <script>
+            var motion = {};
             var downHandler = function () {
                 window.android.startMotion();
             };
@@ -89,7 +90,7 @@
                 document.getElementById("content").appendChild(s);
             })();
             window.gt_custom_ajax = function (result, id, message) {
-                log("in ajax")
+                log("in ajax , m :" + motion)
 
                 // post('http://geetest.com/track', track);
 
