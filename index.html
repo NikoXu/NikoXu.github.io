@@ -68,15 +68,15 @@
     </div>
     <div class="body" id="content">
         <script>
-            var motion = {};
-            var downHandler = function () {
-                window.android.startMotion();
-            };
-            var upHandler = function () {
-                window.android.stopMotionAndReturnData();
-            };
-            document.addEventListener('touchstart', downHandler);
-            document.addEventListener('touchend', upHandler);
+            // var motion = {};
+            // var downHandler = function () {
+            //     window.android.startMotion();
+            // };
+            // var upHandler = function () {
+            //     window.android.stopMotionAndReturnData();
+            // };
+            // document.addEventListener('touchstart', downHandler);
+            // document.addEventListener('touchend', upHandler);
 
             var log = function (str) {
                 var s = document.createElement('div');
@@ -118,35 +118,36 @@
                             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
                         }), message);
                     }
-                }else if (window.webkit.messageHandlers) {
-                    log("wkWebview working")
-                    // if (window.webkit.messageHandlers) {
-                	   if (result) {
-                		  try {
-                            var json_gt = JSON.stringify({
-                                geetest_challenge: document.querySelector('input[name=geetest_challenge]').value,
-                                geetest_validate: document.querySelector('input[name=geetest_validate]').value,
-                                geetest_seccode: document.querySelector('input[name=geetest_seccode]').value
-                               })
-                            log(json_gt)
-                          }
-                            catch (e) {
-                            log(e)
-                        }
-                        window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
-                            code : "1",
-                            result: json_gt,
-                            message: message}));
-                	}else{
-                		window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
-                            code: "0",
-                            result: {
-                            geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
-                        },
-                            message: message}));
-                	}
-                // }
                 }
+                // else if (window.webkit.messageHandlers) {
+                //     log("wkWebview working")
+                //     // if (window.webkit.messageHandlers) {
+                // 	   if (result) {
+                // 		  try {
+                //             var json_gt = JSON.stringify({
+                //                 geetest_challenge: document.querySelector('input[name=geetest_challenge]').value,
+                //                 geetest_validate: document.querySelector('input[name=geetest_validate]').value,
+                //                 geetest_seccode: document.querySelector('input[name=geetest_seccode]').value
+                //                })
+                //             log(json_gt)
+                //           }
+                //             catch (e) {
+                //             log(e)
+                //         }
+                //         window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
+                //             code : "1",
+                //             result: json_gt,
+                //             message: message}));
+                // 	}else{
+                // 		window.webkit.messageHandlers.observe.postMessage(JSON.stringify({
+                //             code: "0",
+                //             result: {
+                //             geetest_challenge: document.querySelector('input[name=geetest_challenge]').value
+                //         },
+                //             message: message}));
+                // 	}
+                // // }
+                // }
             }
             window.onGeetestLoaded = function($) {
                 if(typeof $ == 'function') {
